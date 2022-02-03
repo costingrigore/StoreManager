@@ -24,5 +24,11 @@ namespace StoreManager
         {
             optionsBuilder.UseSqlServer(_connectionString);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>().ToTable("Product");
+            modelBuilder.Entity<Product>().HasKey(p=>p.ProductId);
+        }
     }
 }

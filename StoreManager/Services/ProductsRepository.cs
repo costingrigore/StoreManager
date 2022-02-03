@@ -13,9 +13,9 @@ public class ProductsRepository : IProductsRepository
 {
     private readonly ApplicationDbContext _context = new ApplicationDbContext();
 
-    public Task<List<Product>> GetProductsAsync()
+    public async Task<List<Product>> GetProductsAsync()
     {
-        return _context.Products.ToListAsync();
+        return await _context.Products.ToListAsync();
     }
 
     public Task<Product> GetProductAsync(int ProductId)

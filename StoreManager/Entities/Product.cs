@@ -6,7 +6,6 @@ using System.Linq;
 namespace StoreManager.Entities;
 public class Product
 {
-    [Key]
     public int ProductId { get; set; }
     public string SKU { get; set; }
     public string Title { get; set; }

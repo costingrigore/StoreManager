@@ -6,8 +6,14 @@
              xmlns:local="clr-namespace:StoreManager"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             local:ViewModelLocator.AutoWireViewModel="True">
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             Loaded="ProductListViewLoaded"
+             >
     <Grid>
-        <DataGrid ItemsSource="{Binding Products}" />
+        <DataGrid ItemsSource="{Binding Products, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="SKU" Binding="{Binding Path=SKU}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
